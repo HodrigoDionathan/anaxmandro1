@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Nome do Psiquiatra</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos e animações para o efeito */
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Classe base para ocultar os elementos antes da animação */
+        .hidden {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+
+        /* Classe para ativar a animação */
+        .slide-in {
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        /* Estilos gerais */
+        body {
+            background-color: #F5F3F1; /* Fundo bege claro */
+            color: #333; /* Texto em cinza escuro para melhor contraste */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        img.perfil {
+            max-width: 150px;
+            border-radius: 20%;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background: #A1C6EA; /* Azul claro para o menu de navegação */
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white; /* Letras da barra de navegação em branco */
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #444; /* Cor de fundo do rodapé */
+        }
+
+        footer p {
+            color: white; /* Texto do rodapé em branco */
+        }
+
+        /* Estilos para seções */
+        section {
+            background-color: #FFFFFF; /* Fundo branco para as seções */
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333; /* Títulos em cinza escuro */
+        }
+
+        .descricao p {
+            color: #555; /* Texto da descrição em cinza suave */
+        }
+
+        ul {
+            text-align: left;
+            color: #555;
+        }
+
+        label {
+            color: #333;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        button {
+            background-color: #F2A65A; /* Laranja claro para o botão */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #F28C32; /* Laranja escuro no hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#Especialista">Especialista</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="sobre" class="hidden">
+        <div class="container">
+            <img src="imagens\medicina.jpg" alt="Foto do Dr. Nome do Psiquiatra" class="perfil" style="
+    width: 200px;
+    height: 200px;
+">
+            <div class="descricao">
+                <h1>Dr. Anaxmandro Antonio Sarmento </h1>
+                <p>Médico Psiquiatra - CRM-PB 7217 </p>
+                <p>Dr. Anaximandro Antônio Sarmento é um renomado psiquiatra com ampla experiência no cuidado da saúde mental. Atuando em diversas cidades do Nordeste, incluindo Bom Sucesso (PB), Riacho dos Cavalos (PB) e Alexandria (RN), ele tem se destacado pelo atendimento humanizado e pela eficácia no tratamento de seus pacientes.
+
+                    Com formação sólida e dedicação à psiquiatria, Dr. Anaximandro é reconhecido por sua atenção durante as consultas e pela criação de um ambiente acolhedor para aqueles que o procuram. Atualmente, ele também colabora com o Fundo Municipal de Saúde, reforçando seu compromisso em oferecer suporte de qualidade às comunidades locais.
+                    
+                    Sua trajetória inclui a aprovação em concursos públicos, como o realizado pela Prefeitura de Riacho dos Cavalos (PB), onde atua como médico psiquiatra desde janeiro de 2024. Em avaliações de pacientes, é elogiado pela competência e pelos resultados alcançados em seus tratamentos.
+                    
+                    Dr. Anaximandro atende em clínicas e unidades de saúde das regiões em que atua, oferecendo serviços como acompanhamento psiquiátrico, diagnóstico de transtornos mentais e orientações terapêuticas. Para aqueles que buscam acolhimento e cuidado na área da saúde mental, ele é um profissional que inspira confiança e dedicação.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades" class="hidden">
+        <div class="container">
+            <h2>Habilidades e Especializações</h2>
+            <ul>
+                <li>Atendimento Humanizado: Conhecido por criar um ambiente acolhedor e empático, o Dr. Anaximandro proporciona aos pacientes conforto e segurança durante as consultas, priorizando sempre o bem-estar emocional.</li>
+                <li>Diagnóstico Preciso e Tratamento Eficaz: Com uma sólida formação e experiência, ele se destaca pela capacidade de identificar e tratar transtornos mentais com assertividade, alcançando resultados positivos no cuidado de seus pacientes.</li>
+                <li>Compromisso com a Saúde Comunitária: Além do atendimento clínico, o Dr. Anaximandro atua em projetos ligados ao Fundo Municipal de Saúde, contribuindo significativamente para a saúde mental em diversas comunidades da região.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contato" class="hidden">
+        <div class="container">
+            <h2>Contato</h2>
+            <form id="form-contato">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Dr.Anaxmandro Antonio Sarmento. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll("section");
+
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.classList.remove("hidden");
+                    section.classList.add("slide-in");
+                }, index * 1000); // 1 segundo de intervalo entre as seções
+            });
+        });
+    </script>
+</body>
+</html>
