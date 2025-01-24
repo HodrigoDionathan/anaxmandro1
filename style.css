@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #000000;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section {
+    padding: 20px 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.descricao {
+    text-align: left;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    margin-top: 10px;
+}
+
+form input, form textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+form button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4dba61;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.perfil {
+    max-width: 150px; /* Ajuste o tamanho da imagem */
+    border-radius: 50%; /* Deixa a imagem redonda */
+    margin-bottom: 20px;
+}
+
+.descricao h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.descricao p {
+    font-size: 1.2rem;
+    color: #555; /* Ajuste de cor para contraste */
+}
+
+/* Animação para mover da direita para o centro */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Classe base para ocultar os elementos antes da animação */
+.hidden {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+/* Classe para ativar a animação */
+.slide-in {
+    animation: slideIn 1s ease-out forwards;
+}
+
+/* Ajustes de espaçamento entre as seções */
+#sobre, #habilidades, #contato {
+    margin: 40px 0;
+}
