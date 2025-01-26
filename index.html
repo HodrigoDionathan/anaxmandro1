@@ -40,7 +40,7 @@
         }
 
         .menu-toggle {
-            background: #636364;;
+            background: #636364;
             color: white;
             font-weight: bold;
             border: none;
@@ -51,7 +51,7 @@
         }
 
         .menu-content {
-            background: #636364;;
+            background: #636364;
             position: absolute;
             top: 0;
             left: 0;
@@ -167,12 +167,49 @@
             color: white;
             text-decoration: none;
         }
+
+        /* Chatbot estilo */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 77px;
+            right: 6px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px;
+            border-radius: 45px;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            cursor: pointer;
+        }
+
+        .whatsapp-chat a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .whatsapp-chat:hover {
+            background-color: #128C7E;
+        }
+
+        .typing-text {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            margin-left: 10px;
+            max-width: 180px;
+            word-wrap: break-word;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="menu">
-            <button class="menu-toggle">☰ </button>
+            <button class="menu-toggle">☰ Menu</button>
             <div class="menu-content">
                 <ul>
                     <li><a href="#sobre">Sobre</a></li>
@@ -180,50 +217,53 @@
                     <li><a href="#experiencia">Experiência</a></li>
                     <li><a href="#videos">Vídeos</a></li>
                     <li><a href="#galeria">Galeria</a></li>
-                  
-                   
+                    <li><a href="#whatsapp">Contato</a></li>
                 </ul>
             </div>
         </div>
     </header>
 
+    <!-- Seção Sobre -->
     <section id="sobre">
         <div class="container">
-            <img src="medicina.jpg" alt="Foto do Dr. Anaxmandro" style="width: 200px; height: 200px; border-radius: 50%; margin-bottom: 20px;">
+            <img src="imagens/medicina.jpg" alt="Foto do Dr. Anaxmandro" style="width: 200px; height: 200px; border-radius: 50%; margin-bottom: 20px;">
             <h1>Dr. Anaxmandro Antonio Sarmento</h1>
             <p>Dr. Anaximandro Antonio Sarmento é um renomado médico psiquiatra que se dedica ao cuidado da saúde mental, atuando com excelência em várias localidades no Nordeste do Brasil. Reconhecido por seu atendimento humanizado e abordagem acolhedora, ele tem ajudado inúmeros pacientes a enfrentar desafios relacionados à mente e ao bem-estar emocional.</p>
         </div>
     </section>
 
+    <!-- Seção Especialista -->
     <section id="especialista">
         <div class="container">
             <h2>Especializações</h2>
             <ul>
                 <li>Com vasta formação na área de Psiquiatria, o Dr. Anaximandro é especialista no diagnóstico e tratamento de transtornos mentais, emocionais e comportamentais, incluindo depressão, ansiedade, transtornos de humor e dependência química. Ele também se aprofunda no uso de abordagens modernas e personalizadas para oferecer o melhor suporte terapêutico aos seus pacientes.</li>
-              
             </ul>
         </div>
     </section>
+
+    <!-- Seção Experiência -->
     <section id="experiencia">
         <div class="container">
             <h2>Experiência Profissional</h2>
             <ul>
                 <li>Ao longo de sua carreira, Dr. Anaximandro acumulou ampla experiência em clínicas e centros de saúde renomados, como o Complexo Elizabete Dantas, e participou de importantes processos seletivos, destacando-se como profissional de referência em Psiquiatria. Com atuação em cidades como Bom Sucesso (PB), Riacho dos Cavalos (PB) e Alexandria (RN), ele combina experiência prática e conhecimento científico para proporcionar tratamentos eficazes e transformadores.</li>
-                
             </ul>
         </div>
     </section>
 
+    <!-- Seção Vídeos -->
     <section id="videos">
         <div class="container">
-            <h2></h2>
+            <h2>Vídeos</h2>
             <iframe src="https://player.vimeo.com/video/12345678" width="100%" height="360" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
+    <!-- Seção Galeria -->
     <section id="galeria">
         <div class="container">
-            <h2></h2>
+            <h2>Galeria</h2>
             <div class="galeria">
                 <img src="imagens/11.jpeg" alt="Foto 1">
                 <img src="imagens/12.png" alt="Foto 2">
@@ -232,14 +272,14 @@
         </div>
     </section>
 
-    
-
     <footer>
         <p>&copy; 2025 Dr. Anaxmandro Antonio Sarmento.</p>
     </footer>
 
-    <div class="whatsapp">
-        <a href="https://wa.me/5521980023832" target="_blank">&#x1F4AC;</a>
+    <!-- Botão WhatsApp com a mensagem de chatbot -->
+    <div class="whatsapp-chat">
+        <span class="typing-text" id="typingMessage"></span>
+        <a href="https://wa.me/5521980023832" target="_blank">WhatsApp</a>
     </div>
 
     <div class="modal">
@@ -247,6 +287,24 @@
     </div>
 
     <script>
+        // Função para efeito de digitação
+        const typingMessage = document.getElementById('typingMessage');
+        const message = " Clique aqui para Agendar Atendimento";
+        let index = 0;
+
+        function typeMessage() {
+            if (index < message.length) {
+                typingMessage.innerHTML += message.charAt(index);
+                index++;
+                setTimeout(typeMessage, 100); // Ajuste o tempo de digitação
+            }
+        }
+
+        // Inicia o efeito ao carregar a página
+        window.onload = () => {
+            typeMessage();
+        };
+
         // Menu toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const menuContent = document.querySelector('.menu-content');
