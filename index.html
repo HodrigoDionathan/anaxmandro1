@@ -204,6 +204,106 @@
             max-width: 180px;
             word-wrap: break-word;
         }
+
+
+
+/* Estilos do Carrossel de Vídeos */
+.video-carousel {
+    display: flex;
+    overflow-x: scroll;
+    gap: 20px;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    width: 100%; /* Faz com que o carrossel ocupe toda a largura disponível */
+}
+
+.video-item {
+    flex: 0 0 100%; /* Faz com que cada vídeo ocupe 100% da largura */
+    height: 315px; /* Ajusta a altura do vídeo */
+    border-radius: 8px;
+    scroll-snap-align: start; /* Alinha os vídeos ao início do carrossel */
+    max-width: 100%; /* Evita que o vídeo ultrapasse a largura da tela */
+}
+
+.video-carousel::-webkit-scrollbar {
+    display: none; /* Oculta a barra de rolagem */
+}
+
+.video-item iframe {
+    width: 100%; /* Garante que o iframe ocupe 100% do item */
+    height: 100%; /* Garante que o iframe ocupe 100% da altura */
+    border-radius: 8px;
+}
+
+/* Estilos do Carrossel de Vídeos */
+.video-carousel {
+    display: flex;
+    overflow-x: scroll;
+    gap: 20px;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    width: 100%; /* Faz com que o carrossel ocupe toda a largura disponível */
+}
+
+.video-item {
+    flex: 0 0 100%; /* Faz com que cada vídeo ocupe 100% da largura */
+    height: 315px; /* Ajusta a altura do vídeo */
+    border-radius: 8px;
+    scroll-snap-align: start; /* Alinha os vídeos ao início do carrossel */
+    max-width: 100%; /* Evita que o vídeo ultrapasse a largura da tela */
+}
+
+.video-carousel::-webkit-scrollbar {
+    display: none; /* Oculta a barra de rolagem */
+}
+
+.video-item iframe {
+    width: 100%; /* Garante que o iframe ocupe 100% do item */
+    height: 100%; /* Garante que o iframe ocupe 100% da altura */
+    border-radius: 8px;
+}
+
+/* Estilos para as miniaturas */
+.video-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 100px; /* Ajusta o tamanho total da miniatura */
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center; /* Alinha o texto centralizado */
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 70%; /* Ajusta o tamanho da imagem dentro da miniatura */
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail:hover img {
+    transform: scale(1.05); /* Aumenta a miniatura ao passar o mouse */
+}
+
+/* Estilos para as legendas */
+.thumbnail-caption {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
+}
+
+
+
     </style>
 </head>
 <body>
@@ -226,7 +326,7 @@
     <!-- Seção Sobre -->
     <section id="sobre">
         <div class="container">
-            <img src="medicina.jpg" alt="Foto do Dr. Anaxmandro" style="width: 200px; height: 300px; border-radius: 20%; margin-bottom: 20px;">
+            <img src="medicina.jpg" alt="Foto do Dr. Anaxmandro" style="width: 200px; height: 200px; border-radius: 50%; margin-bottom: 20px;">
             <h1>Dr. Anaxmandro Antonio Sarmento</h1>
             <p>Dr. Anaximandro Antonio Sarmento é um renomado médico psiquiatra que se dedica ao cuidado da saúde mental, atuando com excelência em várias localidades no Nordeste do Brasil. Reconhecido por seu atendimento humanizado e abordagem acolhedora, ele tem ajudado inúmeros pacientes a enfrentar desafios relacionados à mente e ao bem-estar emocional.</p>
         </div>
@@ -252,13 +352,36 @@
         </div>
     </section>
 
-    <!-- Seção Vídeos -->
-    <section id="videos">
-        <div class="container">
-            <h2></h2>
-            <iframe src="https://player.vimeo.com/video/12345678" width="100%" height="360" frameborder="0" allowfullscreen></iframe>
+  <!-- Seção Vídeos -->
+<section id="videos">
+    <div class="video-carousel">
+        <!-- Player de Vídeo Principal -->
+        <div class="video-item">
+            <iframe id="main-video" src="https://www.dailymotion.com/embed/video/x7wdeel" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
-    </section>
+    </div>
+    <!-- Miniaturas dos Vídeos -->
+    <div class="video-thumbnails">
+        <div class="thumbnail" onclick="changeVideo('https://www.dailymotion.com/embed/video/xsdmh5')">
+            <img src="https://www.dailymotion.com/thumbnail/video/x79sadd" alt="Miniatura 1">
+            <p class="thumbnail-caption">Exames</p>
+        </div>
+        <div class="thumbnail" onclick="changeVideo('https://www.dailymotion.com/embed/video/x7n9vvu')">
+            <img src="https://www.dailymotion.com/thumbnail/video/x8yzlzc" alt="Miniatura 2">
+            <p class="thumbnail-caption">Origem da Dor</p>
+        </div>
+        <div class="thumbnail" onclick="changeVideo('https://www.dailymotion.com/embed/video/x7d3rh8')">
+            <img src="https://www.dailymotion.com/thumbnail/video/x8rved2" alt="Miniatura 3">
+            <p class="thumbnail-caption">Esquizofrenia</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
 
     <!-- Seção Galeria -->
     <section id="galeria">
@@ -343,6 +466,49 @@
         modal.addEventListener('click', () => {
             modal.classList.remove('open');
         });
+
+
+        
+// Código para o efeito de arrastar
+let isDown = false;
+let startX;
+let scrollLeft;
+
+const carousel = document.querySelector('.video-carousel');
+
+carousel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+});
+
+carousel.addEventListener('mouseleave', () => {
+    isDown = false;
+});
+
+carousel.addEventListener('mouseup', () => {
+    isDown = false;
+});
+
+carousel.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 2; // Ajuste a velocidade de rolagem
+    carousel.scrollLeft = scrollLeft - walk;
+});
+
+
+
+
+// Função para alterar o vídeo ao clicar na miniatura
+function changeVideo(videoUrl) {
+    const mainVideo = document.getElementById('main-video');
+    mainVideo.src = videoUrl;
+}
+
     </script>
+    
+    
 </body>
 </html>
