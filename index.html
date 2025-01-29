@@ -3,8 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="É um renomado médico psiquiatra que se dedica ao cuidado da saúde mental">
-    <title>Dr. Anaxmandro Antonio Sarmento</title>
+   
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Dr. Anaxmandro Antonio Sarmento - Psiquiatra especializado em saúde mental. Atendimento humanizado em várias localidades do Nordeste do Brasil.">
+    <meta name="keywords" content="psiquiatra, saúde mental, depressão, ansiedade, tratamento psiquiátrico, Nordeste, Dr. Anaxmandro">
+    <meta name="author" content="Dr. Anaxmandro Antonio Sarmento">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Dr. Anaxmandro Antonio Sarmento | Psiquiatra">
+    <meta property="og:description" content="Psiquiatra especializado em saúde mental com atendimento humanizado">
+    <meta property="og:image" content="akin2.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <title>Dr. Anaxmandro Antonio Sarmento | Psiquiatra</title>
+    
+    <!-- Preload de fontes e recursos críticos -->
+    <link rel="preload" href="akin2.png" as="image">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <style>
         /* Atualizando as cores e estilos gerais */
         :root {
@@ -96,10 +114,24 @@
             text-decoration: none;
             color: white;
             font-weight: inherit;
+            position: relative;
+            overflow: hidden;
         }
 
-        .menu-content ul li a:hover {
-            background: #F2A65A;
+        .menu-content ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-content ul li a:hover::after {
+            transform: scaleX(1);
         }
 
         /* Estilo atualizado para o cabeçalho */
@@ -217,11 +249,13 @@
             border-radius: 8px;
             scroll-snap-align: center;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .galeria img:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         .modal {
@@ -271,7 +305,8 @@
             border-radius: 30px;
             padding: 15px 25px;
             font-size: 18px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: right bottom;
         }
 
         .whatsapp-chat:hover {
@@ -389,6 +424,262 @@
             color: #333;
             margin-top: 5px;
         }
+
+        /* Animações suaves */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+            animation-play-state: paused;
+        }
+
+        .container.loaded {
+            animation-play-state: running;
+        }
+
+        /* Transições suaves para o menu */
+        .menu-toggle {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-content {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Melhorias no scroll */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 20px;
+        }
+
+        /* Loading indicator */
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .loading-bar.active {
+            transform: scaleX(1);
+        }
+
+        /* Feedback visual para interações */
+        .menu-content ul li a {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-content ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-content ul li a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .whatsapp-chat {
+            transform-origin: right bottom;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .whatsapp-chat:hover {
+            transform: scale(1.05);
+        }
+
+        .galeria img {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .galeria img:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+            z-index: 1000;
+            transform: translateY(calc(100% - 60px));
+            transition: transform 0.3s ease;
+        }
+
+        .chatbot-container.open {
+            transform: translateY(0);
+        }
+
+        .chatbot-header {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .chatbot-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid white;
+        }
+
+        .chatbot-info {
+            flex: 1;
+        }
+
+        .chatbot-info h3 {
+            color: white;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .online-status {
+            color: #2ecc71;
+            font-size: 12px;
+        }
+
+        .chatbot-toggle {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+            padding: 0 5px;
+        }
+
+        .chatbot-toggle .minimize {
+            display: none;
+        }
+
+        .chatbot-container.open .minimize {
+            display: inline;
+        }
+
+        .chatbot-container.open .maximize {
+            display: none;
+        }
+
+        .chatbot-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 15px;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 15px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .message.bot {
+            background: #e3f2fd;
+            margin-right: auto;
+            border-bottom-left-radius: 5px;
+        }
+
+        .message.user {
+            background: var(--primary-color);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message.typing {
+            background: #e9ecef;
+            color: #666;
+            font-style: italic;
+        }
+
+        .chatbot-input {
+            padding: 10px;
+            background: white;
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .chatbot-select {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .chatbot-send {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .chatbot-send:hover {
+            background: var(--secondary-color);
+        }
+
+        @media (max-width: 480px) {
+            .chatbot-container {
+                width: 90%;
+                right: 5%;
+                left: 5%;
+            }
+        }
+
+        .continue-button {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .continue-button button {
+            background: #25D366; /* Cor do WhatsApp */
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .continue-button button:hover {
+            background: #128C7E;
+        }
     </style>
 </head>
 <body>
@@ -473,9 +764,24 @@
         <div class="container">
             <h2></h2>
             <div class="galeria">
-                <img src="11.jpeg" alt="Foto 1">
-                <img src="12.png" alt="Foto 2">
-                <img src="13.jpg" alt="Foto 3">
+                <img src="11.jpeg" 
+                     data-src="imagens/11.jpeg" 
+                     alt="Foto 1" 
+                     loading="lazy"
+                     width="300"
+                     height="200">
+                <img src="12.png" 
+                     data-src="imagens/12.png" 
+                     alt="Foto 2" 
+                     loading="lazy"
+                     width="300"
+                     height="200">
+                <img src="13.jpg" 
+                     data-src="imagens/13.jpg" 
+                     alt="Foto 3" 
+                     loading="lazy"
+                     width="300"
+                     height="200">
             </div>
         </div>
     </section>
@@ -510,16 +816,41 @@
         <p>&copy; 2025 Dr. Anaxmandro Antonio Sarmento.</p>
     </footer>
 
-    <!-- Botão WhatsApp com a mensagem de chatbot -->
-    <div class="whatsapp-chat">
-        <span class="typing-text" id="typingMessage"></span>
-        <a href="https://wa.me/5583999818044" target="_blank">WhatsApp</a>
+    <!-- Substitua a div do WhatsApp por esta -->
+    <div class="chatbot-container" id="chatbot">
+        <div class="chatbot-header">
+            <img src="mulher.jpg" alt="Assistente Virtual" class="chatbot-avatar">
+            <div class="chatbot-info">
+                <h3>Assistente Virtual</h3>
+                <span class="online-status">Online</span>
+            </div>
+            <button class="chatbot-toggle" id="chatbot-toggle">
+                <span class="minimize">−</span>
+                <span class="maximize">+</span>
+            </button>
+        </div>
+        
+        <div class="chatbot-messages" id="chatbot-messages">
+            <!-- As mensagens serão inseridas aqui via JavaScript -->
+        </div>
+        
+        <div class="chatbot-input">
+            <select id="chatbot-options" class="chatbot-select">
+                <option value="">Selecione uma opção...</option>
+                <option value="consulta">Agendar Consulta</option>
+                <option value="horarios">Horários Disponíveis</option>
+                <option value="emergencia">Emergência</option>
+                <option value="informacoes">Mais Informações</option>
+            </select>
+            <button class="chatbot-send" id="chatbot-send">Enviar</button>
+        </div>
     </div>
 
     <div class="modal">
         <img src="" alt="Imagem ampliada">
     </div>
 
+    <script src="js/chatbot.js"></script>
     <script>
         // Função para efeito de digitação
         const typingMessage = document.getElementById('typingMessage');
