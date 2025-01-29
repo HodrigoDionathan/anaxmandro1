@@ -126,6 +126,59 @@
             flex: 1;
         }
 
+        /* Adicionando media queries para responsividade */
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .profile-info h1 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .profile-info h3 {
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+
+            .profile-info p {
+                font-size: 16px;
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-header {
+                padding: 10px;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile-info h1 {
+                font-size: 20px;
+            }
+
+            .profile-info h3 {
+                font-size: 16px;
+            }
+
+            .profile-info p {
+                font-size: 14px;
+            }
+        }
+
         /* Estilo para as seções */
         section {
             background: white;
