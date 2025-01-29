@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Anaxmandro Antonio Sarmento</title>
     <style>
-        /* Estilos gerais */
+        /* Atualizando as cores e estilos gerais */
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #3498DB;
+            --accent-color: #E74C3C;
+            --background-color: #F8F9FA;
+            --text-color: #2C3E50;
+        }
+
         body {
-            background-color: #F5F3F1;
-            color: #333;
-            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
@@ -17,9 +25,9 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
             text-align: justify;
             opacity: 0;
             transform: translateX(100%);
@@ -93,12 +101,42 @@
             background: #F2A65A;
         }
 
-        section {
-            background-color: #FFFFFF;
-            border-radius: 8px;
-            margin: 20px 0;
+        /* Estilo atualizado para o cabeçalho */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--secondary-color);
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        /* Estilo para as seções */
+        section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
         }
 
         footer {
@@ -173,6 +211,28 @@
             text-decoration: none;
         }
 
+        /* Estilo atualizado para o WhatsApp */
+        .whatsapp-chat {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            border-radius: 30px;
+            padding: 15px 25px;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-chat:hover {
+            transform: scale(1.05);
+        }
+
+        .typing-text {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            margin-left: 10px;
+            max-width: 180px;
+            word-wrap: break-word;
+        }
+
         /* Chatbot estilo */
         .whatsapp-chat {
             position: fixed;
@@ -210,106 +270,71 @@
             word-wrap: break-word;
         }
 
+        /* Estilos do Carrossel de Vídeos */
+        .video-carousel {
+            display: flex;
+            overflow-x: scroll;
+            gap: 20px;
+            padding: 10px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            width: 100%; /* Faz com que o carrossel ocupe toda a largura disponível */
+        }
 
+        .video-item {
+            flex: 0 0 100%; /* Faz com que cada vídeo ocupe 100% da largura */
+            height: 315px; /* Ajusta a altura do vídeo */
+            border-radius: 8px;
+            scroll-snap-align: start; /* Alinha os vídeos ao início do carrossel */
+            max-width: 100%; /* Evita que o vídeo ultrapasse a largura da tela */
+        }
 
-/* Estilos do Carrossel de Vídeos */
-.video-carousel {
-    display: flex;
-    overflow-x: scroll;
-    gap: 20px;
-    padding: 10px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    width: 100%; /* Faz com que o carrossel ocupe toda a largura disponível */
-}
+        .video-carousel::-webkit-scrollbar {
+            display: none; /* Oculta a barra de rolagem */
+        }
 
-.video-item {
-    flex: 0 0 100%; /* Faz com que cada vídeo ocupe 100% da largura */
-    height: 315px; /* Ajusta a altura do vídeo */
-    border-radius: 8px;
-    scroll-snap-align: start; /* Alinha os vídeos ao início do carrossel */
-    max-width: 100%; /* Evita que o vídeo ultrapasse a largura da tela */
-}
+        .video-item iframe {
+            width: 100%; /* Garante que o iframe ocupe 100% do item */
+            height: 100%; /* Garante que o iframe ocupe 100% da altura */
+            border-radius: 8px;
+        }
 
-.video-carousel::-webkit-scrollbar {
-    display: none; /* Oculta a barra de rolagem */
-}
+        /* Estilos para as miniaturas */
+        .video-thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
 
-.video-item iframe {
-    width: 100%; /* Garante que o iframe ocupe 100% do item */
-    height: 100%; /* Garante que o iframe ocupe 100% da altura */
-    border-radius: 8px;
-}
+        .thumbnail {
+            width: 80px;
+            height: 100px; /* Ajusta o tamanho total da miniatura */
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center; /* Alinha o texto centralizado */
+        }
 
-/* Estilos do Carrossel de Vídeos */
-.video-carousel {
-    display: flex;
-    overflow-x: scroll;
-    gap: 20px;
-    padding: 10px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    width: 100%; /* Faz com que o carrossel ocupe toda a largura disponível */
-}
+        .thumbnail img {
+            width: 100%;
+            height: 70%; /* Ajusta o tamanho da imagem dentro da miniatura */
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
 
-.video-item {
-    flex: 0 0 100%; /* Faz com que cada vídeo ocupe 100% da largura */
-    height: 315px; /* Ajusta a altura do vídeo */
-    border-radius: 8px;
-    
-    scroll-snap-align: start; /* Alinha os vídeos ao início do carrossel */
-    max-width: 100%; /* Evita que o vídeo ultrapasse a largura da tela */
-}
+        .thumbnail:hover img {
+            transform: scale(1.05); /* Aumenta a miniatura ao passar o mouse */
+        }
 
-.video-carousel::-webkit-scrollbar {
-    display: none; /* Oculta a barra de rolagem */
-}
-
-.video-item iframe {
-    width: 100%; /* Garante que o iframe ocupe 100% do item */
-    height: 100%; /* Garante que o iframe ocupe 100% da altura */
-    border-radius: 8px;
-}
-
-/* Estilos para as miniaturas */
-.video-thumbnails {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.thumbnail {
-    width: 80px;
-    height: 100px; /* Ajusta o tamanho total da miniatura */
-    cursor: pointer;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center; /* Alinha o texto centralizado */
-}
-
-.thumbnail img {
-    width: 100%;
-    height: 70%; /* Ajusta o tamanho da imagem dentro da miniatura */
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.thumbnail:hover img {
-    transform: scale(1.05); /* Aumenta a miniatura ao passar o mouse */
-}
-
-/* Estilos para as legendas */
-.thumbnail-caption {
-    font-size: 12px;
-    font-weight: bold;
-    color: #333;
-    margin-top: 5px;
-}
-
-
-
+        /* Estilos para as legendas */
+        .thumbnail-caption {
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -323,7 +348,6 @@
                     <li><a href="#experiencia">Experiência</a></li>
                     <li><a href="#videos">Vídeos</a></li>
                     <li><a href="#galeria">Galeria</a></li>
-                   
                 </ul>
             </div>
         </div>
@@ -331,11 +355,16 @@
 
     <!-- Seção Sobre -->
     <section id="sobre">
-        <div class="container">
-            <div style="display: flex; justify-content: flex-end;">
-                <img src="medicina.jpg" alt="Foto do Dr. Anaxmandro" style="width: 200px; height: 200px; border-radius: 50%; margin-bottom: 20px;">
+        <div class="profile-header">
+            <img src="imagens/akim.jpg" alt="Dr. Anaxmandro" class="profile-image">
+            <div class="profile-info">
+                <h1>Dr. Anaxmandro Antonio Sarmento</h1>
+                <h3>Médico Psiquiatra</h3>
+                <p>CRM XXXXX</p>
+                <p>Especialista em Saúde Mental e Bem-estar Emocional</p>
             </div>
-            <h1>Dr. Anaxmandro Antonio Sarmento</h1>
+        </div>
+        <div class="container">
             <p>Dr. Anaximandro Antonio Sarmento é um renomado médico psiquiatra que se dedica ao cuidado da saúde mental, atuando com excelência em várias localidades no Nordeste do Brasil. Reconhecido por seu atendimento humanizado e abordagem acolhedora, ele tem ajudado inúmeros pacientes a enfrentar desafios relacionados à mente e ao bem-estar emocional.</p>
         </div>
     </section>
@@ -360,45 +389,65 @@
         </div>
     </section>
 
-  <!-- Seção Vídeos -->
-<section id="videos">
-    <div class="video-carousel">
-        <!-- Player de Vídeo Principal -->
-        <div class="video-item">
-            <iframe id="main-video" src="https://www.dailymotion.com/embed/video/x7wdeel" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <!-- Seção Vídeos -->
+    <section id="videos">
+        <div class="video-carousel">
+            <!-- Player de Vídeo Principal -->
+            <div class="video-item">
+                <iframe id="main-video" src="https://www.dailymotion.com/embed/video/x7wdeel" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
         </div>
-    </div>
-    <!-- Miniaturas dos Vídeos -->
-    <div class="video-thumbnails">
-        <div class="thumbnail" onclick="changeVideo('https://www.dailymotion.com/embed/video/xsdmh5')">
-            <img src="https://www.dailymotion.com/thumbnail/video/x79sadd" alt="Miniatura 1">
-            <p class="thumbnail-caption">Exames</p>
+        <!-- Miniaturas dos Vídeos -->
+        <div class="video-thumbnails">
+            <div class="thumbnail" onclick="changeVideo('https://www.dailymotion.com/embed/video/xsdmh5')">
+                <img src="https://www.dailymotion.com/thumbnail/video/x79sadd" alt="Miniatura 1">
+                <p class="thumbnail-caption">Exames</p>
+            </div>
+            <div class="thumbnail" onclick="changeVideo('https://www.dailymotion.com/embed/video/x7n9vvu')">
+                <img src="https://www.dailymotion.com/thumbnail/video/x8yzlzc" alt="Miniatura 2">
+                <p class="thumbnail-caption">Origem da Dor</p>
+            </div>
+            <div class="thumbnail" onclick="changeVideo('https://www.dailymotion.com/embed/video/x7d3rh8')">
+                <img src="https://www.dailymotion.com/thumbnail/video/x8rved2" alt="Miniatura 3">
+                <p class="thumbnail-caption">Esquizofrenia</p>
+            </div>
         </div>
-        <div class="thumbnail" onclick="changeVideo('https://www.dailymotion.com/embed/video/x7n9vvu')">
-            <img src="https://www.dailymotion.com/thumbnail/video/x8yzlzc" alt="Miniatura 2">
-            <p class="thumbnail-caption">Origem da Dor</p>
-        </div>
-        <div class="thumbnail" onclick="changeVideo('https://www.dailymotion.com/embed/video/x7d3rh8')">
-            <img src="https://www.dailymotion.com/thumbnail/video/x8rved2" alt="Miniatura 3">
-            <p class="thumbnail-caption">Esquizofrenia</p>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
+    </section>
 
     <!-- Seção Galeria -->
     <section id="galeria">
         <div class="container">
             <h2></h2>
             <div class="galeria">
-                <img src="11.jpeg" alt="Foto 1">
-                <img src="12.png" alt="Foto 2">
-                <img src="13.jpg" alt="Foto 3">
+                <img src="imagens/11.jpeg" alt="Foto 1">
+                <img src="imagens/12.png" alt="Foto 2">
+                <img src="imagens/13.jpg" alt="Foto 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- Adicionando uma seção de contato -->
+    <section id="contato">
+        <div class="container">
+            <h2>Informações de Contato</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Endereço</h3>
+                    <p>Rua Example, 123</p>
+                    <p>Cidade - Estado</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Telefone</h3>
+                    <p>(83) 99981-8044</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Horário de Atendimento</h3>
+                    <p>Segunda a Sexta: 8h às 18h</p>
+                    <p>Sábado: 8h às 12h</p>
+                </div>
             </div>
         </div>
     </section>
@@ -475,48 +524,40 @@
             modal.classList.remove('open');
         });
 
+        // Código para o efeito de arrastar
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-        
-// Código para o efeito de arrastar
-let isDown = false;
-let startX;
-let scrollLeft;
+        const carousel = document.querySelector('.video-carousel');
 
-const carousel = document.querySelector('.video-carousel');
+        carousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
+        });
 
-carousel.addEventListener('mousedown', (e) => {
-    isDown = true;
-    startX = e.pageX - carousel.offsetLeft;
-    scrollLeft = carousel.scrollLeft;
-});
+        carousel.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
 
-carousel.addEventListener('mouseleave', () => {
-    isDown = false;
-});
+        carousel.addEventListener('mouseup', () => {
+            isDown = false;
+        });
 
-carousel.addEventListener('mouseup', () => {
-    isDown = false;
-});
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 2; // Ajuste a velocidade de rolagem
+            carousel.scrollLeft = scrollLeft - walk;
+        });
 
-carousel.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - carousel.offsetLeft;
-    const walk = (x - startX) * 2; // Ajuste a velocidade de rolagem
-    carousel.scrollLeft = scrollLeft - walk;
-});
-
-
-
-
-// Função para alterar o vídeo ao clicar na miniatura
-function changeVideo(videoUrl) {
-    const mainVideo = document.getElementById('main-video');
-    mainVideo.src = videoUrl;
-}
-
+        // Função para alterar o vídeo ao clicar na miniatura
+        function changeVideo(videoUrl) {
+            const mainVideo = document.getElementById('main-video');
+            mainVideo.src = videoUrl;
+        }
     </script>
-    
-    
 </body>
 </html>
